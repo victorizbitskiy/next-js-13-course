@@ -1,5 +1,7 @@
+import Movie from "./about/Movie";
+
 const axios = require("axios");
-let res = '';
+let res = [];
 
 export default function Home() {
 
@@ -19,16 +21,24 @@ export default function Home() {
     console.error(error)
   });
 
-  console.log(res);
-
   return (
     <main >
       <h1 >Hello Next 13!</h1>
-      {res.map((movie => (
-        <div>
-          <h1>{movie.l}</h1>
-        </div>
-      )))}
+      {res.map((movie) => (
+        movie.i
+          ?
+          <Movie
+            key={movie.id}
+            title={movie.l}
+            poster_path={movie.i.imageUrl}
+          />
+          :
+          <Movie
+            key={movie.id}
+            title={movie.l}
+            poster_path="https://m.media-amazon.com/images/M/MV5BYzY4ZDFjMTQtYTVkNS00NmViLTg5ZWMtMWM0OWRkYWUwOGVmXkEyXkFqcGdeQXVyMTk2ODc0MjY@._V1_.jpg"
+          />
+      ))}
     </main>
   )
 }
