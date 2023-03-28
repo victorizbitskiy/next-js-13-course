@@ -8,7 +8,7 @@ export default function Home() {
   const options = {
     method: 'GET',
     url: 'https://online-movie-database.p.rapidapi.com/auto-complete',
-    params: { q: 'western' },
+    params: { q: 'game of thr' },
     headers: {
       'X-RapidAPI-Key': `${process.env.API_KEY}`,
       'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
@@ -23,19 +23,20 @@ export default function Home() {
 
   return (
     <main >
-      <h1 >Hello Next 13!</h1>
       <div className="grid gap-16 grid-cols-fluid">
         {res.map((movie) => (
           movie.i
             ?
             <Movie
               key={movie.id}
+              id={movie.id}
               title={movie.l}
               poster_path={movie.i.imageUrl}
             />
             :
             <Movie
               key={movie.id}
+              id={movie.id}
               title={movie.l}
               poster_path="https://m.media-amazon.com/images/M/MV5BYzY4ZDFjMTQtYTVkNS00NmViLTg5ZWMtMWM0OWRkYWUwOGVmXkEyXkFqcGdeQXVyMTk2ODc0MjY@._V1_.jpg"
             />

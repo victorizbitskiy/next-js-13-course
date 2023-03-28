@@ -1,13 +1,14 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
-const Movie = ({ title, poster_path = "" }) => {
+const Movie = ({ id, title, poster_path = "" }) => {
   return (
     <div>
       <h1>{title}</h1>
-      <div>
+      <Link href={`/${id}`}>
         <Image alt='poster' src={poster_path} width={300} height={300} />
-      </div>
+      </Link>
     </div>
   );
 };
