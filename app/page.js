@@ -24,21 +24,23 @@ export default function Home() {
   return (
     <main >
       <h1 >Hello Next 13!</h1>
-      {res.map((movie) => (
-        movie.i
-          ?
-          <Movie
-            key={movie.id}
-            title={movie.l}
-            poster_path={movie.i.imageUrl}
-          />
-          :
-          <Movie
-            key={movie.id}
-            title={movie.l}
-            poster_path="https://m.media-amazon.com/images/M/MV5BYzY4ZDFjMTQtYTVkNS00NmViLTg5ZWMtMWM0OWRkYWUwOGVmXkEyXkFqcGdeQXVyMTk2ODc0MjY@._V1_.jpg"
-          />
-      ))}
+      <div className="grid gap-16 grid-cols-fluid">
+        {res.map((movie) => (
+          movie.i
+            ?
+            <Movie
+              key={movie.id}
+              title={movie.l}
+              poster_path={movie.i.imageUrl}
+            />
+            :
+            <Movie
+              key={movie.id}
+              title={movie.l}
+              poster_path="https://m.media-amazon.com/images/M/MV5BYzY4ZDFjMTQtYTVkNS00NmViLTg5ZWMtMWM0OWRkYWUwOGVmXkEyXkFqcGdeQXVyMTk2ODc0MjY@._V1_.jpg"
+            />
+        ))}
+      </div>
     </main>
   )
 }

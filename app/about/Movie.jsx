@@ -6,7 +6,7 @@ const Movie = ({ title, poster_path = "" }) => {
     <div>
       <h1>{title}</h1>
       <div>
-        <Image alt='poster' src={poster_path} width={100} height={100} />
+        <Image alt='poster' src={poster_path} width={300} height={300} />
       </div>
     </div>
   );
