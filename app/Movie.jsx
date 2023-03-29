@@ -5,8 +5,8 @@ import React from 'react';
 const Movie = ({ id, title, poster_path = "" }) => {
   return (
     <div>
-      <h1>{title}</h1>
       <Link href={`/${id}`}>
+        <h1>{title}</h1>
         <Image alt='poster' src={poster_path} width={300} height={300} />
       </Link>
     </div>

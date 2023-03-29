@@ -1,4 +1,4 @@
-import Movie from "./about/Movie";
+import Movie from "./Movie";
 
 const axios = require("axios");
 let res = [];
