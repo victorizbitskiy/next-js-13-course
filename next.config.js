@@ -4,7 +4,7 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains: ['m.media-amazon.com'],
+    domains: ['image.tmdb.org'],
   }
 }
 

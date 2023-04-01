@@ -1,45 +1,43 @@
 import Movie from "./Movie";
-
-const axios = require("axios");
-let res = [];
+import axios from "axios";
+let res = []
 
 export default function Home() {
 
   const options = {
     method: 'GET',
-    url: 'https://online-movie-database.p.rapidapi.com/auto-complete',
-    params: { q: 'game of thr' },
+    url: 'https://streaming-availability.p.rapidapi.com/v2/search/basic',
+    params: {
+      country: 'us',
+      services: 'netflix,prime.buy,hulu.addon.hbo,peacock.free',
+      output_language: 'en',
+      show_type: 'movie',
+      genre: '18',
+      show_original_language: 'en'
+    },
     headers: {
       'X-RapidAPI-Key': `${process.env.API_KEY}`,
-      'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
+      'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
     }
   };
 
   axios.request(options).then(function (response) {
-    res = response.data.d
+    res = response.data.result
+    console.log(res);
   }).catch(function (error) {
-    console.error(error)
+    console.error(error);
   });
 
   return (
     <main >
       <div className="grid gap-16 grid-cols-fluid">
         {res.map((movie) => (
-          movie.i
-            ?
-            <Movie
-              key={movie.id}
-              id={movie.id}
-              title={movie.l}
-              poster_path={movie.i.imageUrl}
-            />
-            :
-            <Movie
-              key={movie.id}
-              id={movie.id}
-              title={movie.l}
-              poster_path="https://m.media-amazon.com/images/M/MV5BYzY4ZDFjMTQtYTVkNS00NmViLTg5ZWMtMWM0OWRkYWUwOGVmXkEyXkFqcGdeQXVyMTk2ODc0MjY@._V1_.jpg"
-            />
+          <Movie
+            key={movie.imdbId}
+            id={movie.imdbId}
+            title={movie.title}
+            posterFullPath={`https://image.tmdb.org/t/p/original/2TOA28EMpBjz4jmlpBPKvZLdwAf.jpg`}
+          />
         ))}
       </div>
     </main>

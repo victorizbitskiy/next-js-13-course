@@ -5,7 +5,7 @@ import React from 'react';
 const Error = ({error, reset}) => {
   return (
     <div>
-      This ain't loaading up: {error.message}
+      This ain't loading up: {error.message}
       <button onClick={() => reset()}></button>
     </div>
   );
