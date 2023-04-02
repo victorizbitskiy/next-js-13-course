@@ -2,7 +2,7 @@ import Movie from "./Movie";
 import axios from "axios";
 let res = []
 
-export default function Home() {
+export default async function Home() {
 
   const options = {
     method: 'GET',
@@ -21,7 +21,7 @@ export default function Home() {
     }
   };
 
-  axios.request(options).then(function (response) {
+  await axios.request(options).then(function (response) {
     res = response.data.result
     console.log(res);
   }).catch(function (error) {
@@ -32,11 +32,13 @@ export default function Home() {
     <main >
       <div className="grid gap-16 grid-cols-fluid">
         {res.map((movie) => (
+          // Posters are not available from Russia, so we replace them with another picture
           <Movie
             key={movie.imdbId}
             id={movie.imdbId}
             title={movie.title}
-            posterFullPath={`https://image.tmdb.org/t/p/original/2TOA28EMpBjz4jmlpBPKvZLdwAf.jpg`}
+            posterFullPath={`https://img.freepik.com/free-photo/real-life-cancer-zodiac-sign_23-2149627244.jpg`}
+          // posterFullPath={`https://image.tmdb.org/t/p/original${movie.posterPath}`}
           />
         ))}
       </div>
