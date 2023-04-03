@@ -35,6 +35,7 @@ const MovieDetail = async ({ params }) => {
           src={`https://img.freepik.com/free-photo/real-life-cancer-zodiac-sign_23-2149627244.jpg`}
           width={1000}
           height={1000}
+          property
         />
         {/* <Image alt='poster' src={`https://image.tmdb.org/t/p/original${res.posterPath}`} width={300} height={300} /> */}
       </div>
